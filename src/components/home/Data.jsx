@@ -1,21 +1,66 @@
 const Data = () => {
   return (
-    <div className="home__data p-6">
-      <h1 className="home__title">
-        <p>Amirhossein Mirzaee</p>
+    <div className="max-w-2xl">
+      <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-violet-400/20 bg-violet-500/10 px-4 py-2">
+        <span className="h-2 w-2 animate-pulse rounded-full bg-violet-400" />
+        <span className="text-xs font-medium tracking-wide text-violet-300">
+          FRONTEND DEVELOPER
+        </span>
+      </div>
+
+      <h1 className="text-5xl font-bold leading-[1.1] tracking-tight text-white sm:text-6xl lg:text-7xl">
+        Amirhossein
+        <span className="mt-2 block bg-gradient-to-r from-violet-400 via-purple-300 to-blue-400 bg-clip-text text-transparent">
+          Mirzaee.
+        </span>
       </h1>
-      <h3 className="home__subtitle">Front-end Developer</h3>
-      <p className="home__discription">
-        4+ years building high-performance web apps for real-time trading platforms
-        and AI-driven SaaS products. Specialized in React, Next.js & TypeScript.
+
+      <h2 className="mt-7 text-xl font-medium text-zinc-300 sm:text-2xl">
+        Building digital experiences that make a difference.
+      </h2>
+
+      <p className="mt-5 max-w-xl text-sm leading-8 text-zinc-400 sm:text-base">
+        4+ years building high-performance web applications for real-time
+        trading platforms and AI-driven SaaS products. Specialized in React,
+        Next.js and TypeScript, with a passion for clean architecture and
+        exceptional user experiences.
       </p>
-      <a href="#contact" className="button button--flex">
-        Say Hello!
-        <svg className="button__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M14.2199 21.9352C13.0399 21.9352 11.3699 21.1052 10.0499 17.1352L9.32988 14.9752L7.16988 14.2552C3.20988 12.9352 2.37988 11.2652 2.37988 10.0852C2.37988 8.91525 3.20988 7.23525 7.16988 5.90525L15.6599 3.07525C17.7799 2.36525 19.5499 2.57525 20.6399 3.65525C21.7299 4.73525 21.9399 6.51525 21.2299 8.63525L18.3999 17.1252C17.0699 21.1052 15.3999 21.9352 14.2199 21.9352ZM7.63988 7.33525C4.85988 8.26525 3.86988 9.36525 3.86988 10.0852C3.86988 10.8052 4.85988 11.9052 7.63988 12.8252L10.1599 13.6652C10.3799 13.7352 10.5599 13.9152 10.6299 14.1352L11.4699 16.6552C12.3899 19.4352 13.4999 20.4252 14.2199 20.4252C14.9399 20.4252 16.0399 19.4352 16.9699 16.6552L19.7999 8.16525C20.3099 6.62525 20.2199 5.36525 19.5699 4.71525C18.9199 4.06525 17.6599 3.98525 16.1299 4.49525L7.63988 7.33525Z" fill="var(--container-color)"></path>
-          <path d="M10.11 14.7052C9.92005 14.7052 9.73005 14.6352 9.58005 14.4852C9.29005 14.1952 9.29005 13.7152 9.58005 13.4252L13.16 9.83518C13.45 9.54518 13.93 9.54518 14.22 9.83518C14.51 10.1252 14.51 10.6052 14.22 10.8952L10.64 14.4852C10.5 14.6352 10.3 14.7052 10.11 14.7052Z" fill="var(--container-color)"></path>
-        </svg>
-      </a>
+
+      <div className="mt-9 flex flex-wrap items-center gap-4">
+        <a
+          href="#contact"
+          className="group inline-flex items-center gap-3 rounded-xl bg-violet-500 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-violet-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-violet-400 hover:shadow-violet-500/30"
+        >
+          Let's work together
+          <svg
+            className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M7 17 17 7M7 7h10v10" />
+          </svg>
+        </a>
+
+        <a
+          href="#project"
+          className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-6 py-4 text-sm font-medium text-zinc-300 transition-all duration-300 hover:border-violet-400/40 hover:bg-white/[0.06] hover:text-white"
+        >
+          View my work
+        </a>
+      </div>
+
+      <div className="mt-10 flex flex-wrap gap-3">
+        {["React", "Next.js", "TypeScript", "Tailwind CSS"].map((item) => (
+          <span
+            key={item}
+            className="rounded-lg border border-white/[0.07] bg-white/[0.03] px-3 py-2 text-xs font-medium text-zinc-400"
+          >
+            {item}
+          </span>
+        ))}
+      </div>
     </div>
   );
 };

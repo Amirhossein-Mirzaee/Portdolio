@@ -1,227 +1,126 @@
-/*=============== GOOGLE FONTS ===============*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
-/*=============== VARIABLES CSS ===============*/
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+
+  --color-background: #080b12;
+  --color-surface: #101622;
+  --color-primary: #4f8cff;
+  --color-muted: #929baa;
+}
+
 :root {
-  --header-height: 3rem;
-
-  /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
-  --hue: 0;
-  --sat: 0%;
-  --title-color: hsl(var(--hue), var(--sat), 20%);
-  --title-color-dark: hsl(var(--hue), var(--sat), 0%);
-  --text-color: hsl(var(--hue), var(--sat), 46%);
-  --body-color: hsl(var(--hue), var(--sat), 98%);
-  --container-color: #fff;
-
-  /*========== Font and typography ==========*/
-  --body-font: "Poppins", sans-serif;
-
-  /*.5rem = 8px | 1rem = 16px ...*/
-  --big-font-size: 3.5rem;
-  --h1-font-size: 2.25rem;
-  --h2-font-size: 1.5rem;
-  --h3-font-size: 1.25rem;
-  --normal-font-size: 1rem;
-  --small-font-size: 0.875rem;
-  --smaller-font-size: 0.813rem;
-  --tiny-font-size: 0.625rem;
-
-  /*========== Font weight ==========*/
-  --font-normal: 400;
-  --font-medium: 500;
-  --font-semi-bold: 600;
-
-  /*========== Margenes Bottom ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
-  --mb-0-25: 0.25rem;
-  --mb-0-5: 0.5rem;
-  --mb-0-75: 0.75rem;
-  --mb-1: 1rem;
-  --mb-1-5: 1.5rem;
-  --mb-2: 2rem;
-  --mb-2-5: 2.5rem;
-  --mb-3: 3rem;
-
-  /*========== z index ==========*/
-  --z-tooltip: 10;
-  --z-fixed: 100;
-  --z-modal: 1000;
+  color-scheme: dark;
+  font-family: "Inter", sans-serif;
+  background: #080b12;
+  color: #f5f7fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Responsive typography */
-@media screen and (max-width: 992px) {
-  :root {
-    --big-font-size: 2.75rem;
-    --h1-font-size: 1.5rem;
-    --h2-font-size: 1.25rem;
-    --h3-font-size: 1rem;
-    --normal-font-size: 0.938rem;
-    --small-font-size: 0.813rem;
-    --smaller-font-size: 0.75rem;
-  }
-}
-
-/*=============== BASE ===============*/
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-body,
-button,
-input,
-textarea {
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
+  scroll-padding-top: 110px;
 }
 
 body {
-  background-color: var(--body-color);
-  color: var(--text-color);
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-h1,
-h2,
-h3 {
-  color: var(--title-color);
-  font-weight: var(--font-semi-bold);
+button,
+input,
+textarea {
+  font: inherit;
 }
 
-ul {
-  list-style: none;
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
+  color: inherit;
   text-decoration: none;
 }
 
 button {
   cursor: pointer;
-  border: none;
-  outline: none;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+::selection {
+  background: #4f8cff;
+  color: white;
 }
 
-/*=============== REUSABLE CSS CLASSES ===============*/
 .section {
-  padding: 6rem 0 2rem;
+  @apply relative mx-auto w-full max-w-7xl px-6 py-24 md:px-10 lg:px-12 lg:py-32;
 }
 
 .section__title {
-  font-size: var(--h1-font-size);
-  color: var(--title-color);
+  @apply font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl;
 }
 
 .section__subtitle {
-  display: block;
-  font-size: var(--small-font-size);
-  margin-bottom: 4rem;
+  @apply mt-4 block text-sm leading-7 text-zinc-500;
 }
 
-.section__title,
-.section__subtitle {
-  text-align: center;
-}
-
-/*=============== LAYOUT ===============*/
 .container {
-  max-width: 360px;
-  margin-left: auto;
-  margin-right: auto;
+  @apply mx-auto w-full max-w-7xl px-6;
 }
 
-.grid {
-  display: grid;
-  gap: 1.5rem;
-}
-
-/*=============== BUTTONS ===============*/
 .button {
-  display: inline-block;
-  background-color: var(--title-color);
-  color: var(--container-color);
-  padding: 1.25rem 2rem;
-  border-radius: 1rem;
-  font-weight: var(--font-medium);
-  transition: all ease-in-out;
-  transition-duration:0.18s;
-}
-
-.button:hover {
-  background-color: var(--title-color-dark);
-}
-
-.button__icon {
-  margin-left: var(--mb-0-5);
+  @apply inline-flex items-center justify-center gap-3 rounded-xl bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-400 hover:shadow-blue-500/30;
 }
 
 .button--flex {
-  display: inline-flex;
-  align-items: center;
+  @apply inline-flex items-center gap-2;
 }
 
-/*=============== BREAKPOINTS ===============*/
-/* For large devices */
-@media screen and (max-width: 992px) {
-  .container {
-    margin-left: var(--mb-1-5);
-    margin-right: var(--mb-1-5);
-  }
-
-  .button {
-    padding: 1rem 1.75rem;
-  }
-
-  .button__icon {
-    width: 22px;
-    height: 22px;
-  }
+.grid {
+  @apply grid gap-6;
 }
 
-/* For medium devices */
-@media screen and (max-width: 768px) {
-  body {
-    margin: 0 0 var(--header-height) 0;
-  }
-
-  .section {
-    padding: 2rem 0 4rem;
-  }
-
-  .section__subtitle {
-    margin-bottom: var(--mb-3);
-  }
+.text-gradient {
+  @apply bg-gradient-to-r from-blue-400 via-blue-300 to-cyan-300 bg-clip-text text-transparent;
 }
 
-@media screen and (max-width: 576px) {
+.glass {
+  @apply border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl;
 }
 
-/* For small devices */
-@media screen and (max-width: 320px) {
-  .container {
-    margin-left: var(--mb-1);
-    margin-right: var(--mb-1);
-    max-width: 280px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-  :root {
-    --big-font-size: 2.25rem;
-  }
+.section-label {
+  @apply mb-5 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue-400;
+}
 
-  .container {
-    margin-left: var(--mb-1);
-    margin-right: var(--mb-1);
+.section-label::before {
+  content: "";
+  @apply h-px w-8 bg-blue-500;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 250ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
